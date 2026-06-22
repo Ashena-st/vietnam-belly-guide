@@ -1,0 +1,381 @@
+/* =========================================================
+   Convertisseur GBP ↔ VND
+   Palette : baby blue / rouge bordeaux / blanc
+   ========================================================= */
+
+.currency-hero {
+  --currency-baby-blue: #CFE8FF;
+  --currency-baby-blue-light: #EAF6FF;
+  --currency-baby-blue-dark: #9DCBF2;
+  --currency-bordeaux: #7A1F3D;
+  --currency-bordeaux-dark: #541126;
+  --currency-white: #FFFFFF;
+  --currency-text: #283746;
+  --currency-muted: #627587;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+  overflow: visible;
+  padding: clamp(46px, 7vw, 76px) clamp(22px, 6vw, 72px);
+  color: var(--currency-text);
+
+  background:
+    radial-gradient(
+      circle at 88% 10%,
+      rgba(122, 31, 61, 0.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 8% 95%,
+      rgba(157, 203, 242, 0.45),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #FFFFFF 0%,
+      #F4FAFF 48%,
+      #EAF6FF 100%
+    );
+
+  border: 1px solid rgba(122, 31, 61, 0.10);
+}
+
+.currency-hero::before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(207, 232, 255, 0.35),
+      transparent 48%
+    );
+  pointer-events: none;
+}
+
+.currency-hero-content {
+  width: min(850px, 100%);
+  padding: 0;
+  text-align: center;
+}
+
+.currency-hero .kicker {
+  color: var(--currency-bordeaux);
+}
+
+.currency-hero h1 {
+  max-width: none;
+  color: var(--currency-bordeaux-dark);
+  font-size: clamp(50px, 7vw, 86px);
+}
+
+.currency-hero .hero-copy {
+  max-width: 690px;
+  margin: 24px auto 0;
+  color: var(--currency-muted);
+}
+
+
+/* -------------------------
+   Carte du convertisseur
+   ------------------------- */
+
+.currency-card {
+  position: relative;
+  z-index: 2;
+  width: min(650px, 100%);
+  margin-top: clamp(30px, 5vw, 48px);
+  padding: clamp(24px, 4vw, 38px);
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--currency-baby-blue-light) 0%,
+      var(--currency-baby-blue) 55%,
+      #B8DCFA 100%
+    );
+
+  border: 2px solid rgba(122, 31, 61, 0.18);
+  border-radius: 30px;
+  box-shadow:
+    0 24px 55px rgba(69, 118, 158, 0.22),
+    0 4px 0 rgba(255, 255, 255, 0.65) inset;
+
+  text-align: left;
+}
+
+.currency-card::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.32);
+  pointer-events: none;
+}
+
+
+/* -------------------------
+   En-tête de la carte
+   ------------------------- */
+
+.currency-card-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.currency-card-heading p {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 7px 12px;
+
+  color: var(--currency-bordeaux);
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(122, 31, 61, 0.16);
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.7px;
+}
+
+.currency-card-heading h2 {
+  margin: 0;
+  color: var(--currency-bordeaux-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1;
+}
+
+.currency-card-heading > span {
+  display: block;
+  margin-top: 11px;
+  color: #4F687C;
+  font-size: 14px;
+}
+
+
+/* -------------------------
+   Champs GBP et VND
+   ------------------------- */
+
+.currency-field {
+  position: relative;
+  z-index: 1;
+  padding: 17px 19px;
+
+  background: var(--currency-white);
+  border: 1px solid rgba(122, 31, 61, 0.20);
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 24px rgba(69, 118, 158, 0.10),
+    0 1px 0 rgba(255, 255, 255, 0.90) inset;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.currency-field:focus-within {
+  transform: translateY(-1px);
+  border-color: var(--currency-bordeaux);
+  box-shadow:
+    0 0 0 4px rgba(122, 31, 61, 0.10),
+    0 12px 28px rgba(69, 118, 158, 0.15);
+}
+
+.currency-field label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  color: var(--currency-muted);
+  font-size: 12px;
+}
+
+.currency-field label strong {
+  color: var(--currency-bordeaux);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.currency-field input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--currency-bordeaux-dark);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(29px, 4vw, 41px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+
+/* -------------------------
+   Flèche centrale
+   ------------------------- */
+
+.currency-direction {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  height: 38px;
+
+  color: var(--currency-bordeaux);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.currency-direction span {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+
+  background: var(--currency-white);
+  color: var(--currency-bordeaux);
+
+  border: 2px solid var(--currency-bordeaux);
+  border-radius: 50%;
+
+  box-shadow: 0 6px 15px rgba(84, 17, 38, 0.12);
+}
+
+
+/* -------------------------
+   Taux et note
+   ------------------------- */
+
+.currency-rate {
+  position: relative;
+  z-index: 1;
+  margin: 21px 0 0;
+
+  color: var(--currency-bordeaux-dark);
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.currency-note {
+  position: relative;
+  z-index: 1;
+  margin: 6px 0 0;
+
+  color: #526B7E;
+  font-size: 11px;
+  text-align: center;
+}
+
+
+/* -------------------------
+   Boutons et statistiques
+   ------------------------- */
+
+.currency-hero-footer {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  margin-top: 30px;
+  text-align: center;
+}
+
+.currency-hero .hero-actions {
+  justify-content: center;
+  margin-top: 0;
+}
+
+.currency-hero .button.primary {
+  background: var(--currency-bordeaux);
+  color: var(--currency-white);
+  border-color: var(--currency-bordeaux);
+  box-shadow: 0 10px 24px rgba(122, 31, 61, 0.22);
+}
+
+.currency-hero .button.primary:hover {
+  background: var(--currency-bordeaux-dark);
+  border-color: var(--currency-bordeaux-dark);
+}
+
+.currency-hero .button.secondary {
+  color: var(--currency-bordeaux);
+  background: var(--currency-white);
+  border-color: rgba(122, 31, 61, 0.30);
+}
+
+.currency-hero .button.secondary:hover {
+  background: var(--currency-baby-blue-light);
+}
+
+.currency-hero .hero-stats {
+  justify-content: center;
+  margin-top: 26px;
+  color: var(--currency-muted);
+}
+
+.currency-hero .hero-stats strong {
+  color: var(--currency-bordeaux);
+}
+
+
+/* -------------------------
+   Mobile
+   ------------------------- */
+
+@media (max-width: 680px) {
+  .currency-hero {
+    display: flex;
+    padding: 38px 18px 26px;
+  }
+
+  .currency-hero-content {
+    padding: 0;
+  }
+
+  .currency-hero h1 {
+    font-size: 45px;
+    letter-spacing: -2px;
+  }
+
+  .currency-card {
+    margin-top: 28px;
+    padding: 23px 18px;
+    border-radius: 24px;
+  }
+
+  .currency-card::after {
+    width: 42px;
+    height: 42px;
+    top: 14px;
+    right: 16px;
+  }
+
+  .currency-card-heading h2 {
+    font-size: 36px;
+  }
+
+  .currency-field {
+    padding: 15px 16px;
+  }
+
+  .currency-field input {
+    font-size: 31px;
+  }
+
+  .currency-hero .hero-stats {
+    gap: 18px;
+  }
+}
