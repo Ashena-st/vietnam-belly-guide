@@ -48,10 +48,10 @@
   width: min(650px, 100%);
   margin-top: clamp(30px, 5vw, 48px);
   padding: clamp(24px, 4vw, 38px);
-  border: 1px solid rgba(113, 32, 32, .12);
+  border: 1px solid rgba(85, 140, 190, .28);
   border-radius: 28px;
-  background: rgba(255, 253, 248, .94);
-  box-shadow: 0 24px 50px rgba(75, 48, 25, .14);
+  background: linear-gradient(145deg, #E8F4FF 0%, #D8ECFF 100%);
+  box-shadow: 0 24px 50px rgba(72, 120, 165, .18);
   backdrop-filter: blur(12px);
   text-align: left;
 }
